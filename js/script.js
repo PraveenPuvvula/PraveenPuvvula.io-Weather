@@ -35,9 +35,9 @@ function getWeatherData(){
       fahrenheit=celsius*1.8+32;
       var icon=data.weather[0].icon;
       var weatherDetail=data.weather[0].main+", "+data.weather[0].description;
-      $('.weatherDetail').html(weatherDetail); //update weather description in html
-      $('.iconpic>img').attr('src','http://openweathermap.org/img/w/'+icon+'.png'); //update the icon based on weather
-      $('.temp').html(temprature+"&#8451;"); //update the temprature
+      $('.weatherDetail').html(weatherDetail);
+      $('.iconpic>img').attr('src','http://openweathermap.org/img/w/'+icon+'.png');
+      $('.temp').html(temprature+"&#8451;");
     },
     error: function(err) {
       alert('Oops something went wrong, Please try again.');
@@ -46,13 +46,11 @@ function getWeatherData(){
   });
 }
 $('.toggle .btn').click(function(){
-  // if the div has attribute id as c then convert temperature to fahrenheit
   if($('.toggle').attr('id')=='c'){
     $('.temp').html(fahrenheit+"&#8457;");
     $('.toggle').attr('id','f');
   }
   else if($('.toggle').attr('id')=='f'){
-    //else if div has attribute id as f than convert temperature to celsius
     $('.temp').html(celsius+"&#8451;");
     $('.toggle').attr('id','c');
   }
